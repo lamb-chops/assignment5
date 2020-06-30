@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>List Books</title>
+  </head>
+  <body>
+    <h1>Books </h1>
+    {% if books == [] %}
+        <p>No books exist</p>
+    {% else %}
+        {% for i in books %}
+            <div>
+                {{i.title}}
+                <br/>
+                <a href="{{url_for('editBook', book_id = i.id)}}">Edit Book</a><br/>
+                <a href="{{url_for('deleteBook', book_id = i.id)}}">Delete Book</a><br/>
+                <br/><br/>
+            </div>
+        {% endfor %}
+    {% endif %}
+  </body>
+</html>
